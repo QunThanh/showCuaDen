@@ -1,16 +1,14 @@
-import Header from './Header';
-import Nav from './Nav';
+import Header from '~/components/Layouts/component/Header';
 
-function defaultLayout({ children }) {
+function HeaderOnlyLayout({ children }) {
    return (
       <div>
          <Header />
          <div className="container">
-            <Nav />
             <div className="content">{children}</div>
          </div>
       </div>
    );
 }
 
-export default defaultLayout;
+export default HeaderOnlyLayout;
