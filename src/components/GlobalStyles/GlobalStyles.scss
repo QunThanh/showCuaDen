@@ -4,14 +4,25 @@
 :root {
    --black: #000;
    --white: #fff;
+   --green: #42a639;
+   --gold: #e5c00e;
+   --silver: #a19e9e;
+   --platinum: #608888;
    --black-text: #090909;
    --gray-text: #404b57;
    --red-text: #3a0000;
    --white-text: #f5f5f5;
+   --gold-dark-text: #ab7f35;
+   --gold-text: #bfa055;
+   --gold-blur-text: #bf9f55a5;
    --background-primary: #c5c7ca;
    --background-gold: #bfa055;
    --background-light-blue: #d8dee4;
    --background-dark-blue: #404b56;
+
+   //layout
+   --default-layout-header-height: 80px;
+   --default-layout-width: 1080px;
 }
 
 html {
@@ -23,6 +34,23 @@ body {
    font-size: 1.6rem;
    line-height: 1.2;
    text-rendering: optimizeSpeed; // toi uu toc do render font
+   color: var(--black-text);
+}
+
+button,
+input,
+[tabindex] {
+   outline: none;
+   border: none;
+}
+
+button {
+   cursor: pointer;
+}
+
+a[href] {
+   color: var(--background-gold);
+   text-decoration: none;
 }
 
 * {

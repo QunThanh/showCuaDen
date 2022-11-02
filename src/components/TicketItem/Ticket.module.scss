@@ -1,0 +1,35 @@
+.wrapper {
+   display: flex;
+   padding: 5px 12px;
+   text-align: start;
+   background-color: transparent;
+   cursor: pointer;
+   .seat-class {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      display: flex;
+   }
+   .gold {
+      padding: 0 5px;
+      color: var(--gold);
+   }
+   .silver {
+      padding: 0 5px;
+      color: var(--silver);
+   }
+   .platinum {
+      padding: 0 5px;
+      color: var(--platinum);
+   }
+
+   .price {
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: var(--gold-text);
+   }
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.12);
+      transition: all 0.3s ease-in;
+   }
+}

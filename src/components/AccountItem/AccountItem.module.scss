@@ -1,0 +1,39 @@
+.wrapper {
+   display: flex;
+   padding: 5px 12px;
+   text-align: start;
+   background-color: transparent;
+   cursor: pointer;
+   .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 17px;
+      border: 1px solid var(--gold-blur-text);
+      object-fit: cover;
+   }
+   .info {
+      padding-left: 6px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      color: var(--gold-text);
+      .name {
+         font-size: 1.4rem;
+         font-weight: 600;
+      }
+      .name .icon-staff {
+         padding-left: 2px;
+         font-size: 1.2rem;
+      }
+      .username {
+         font-weight: 400;
+         font-size: 1.2rem;
+         color: var(--gold-blur-text);
+      }
+   }
+
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.12);
+      transition: all 0.3s ease-in;
+   }
+}
