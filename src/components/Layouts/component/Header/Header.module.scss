@@ -96,4 +96,18 @@
          border-color: var(--background-gold);
       }
    }
+
+   .setting {
+      display: flex;
+      font-size: 2rem;
+      gap: 15px;
+      .icon:hover {
+         color: var(--gold-dark-text);
+         transition: color 0.4s ease;
+         cursor: pointer;
+      }
+      .icon:active {
+         color: var(--gold-text);
+      }
+   }
 }

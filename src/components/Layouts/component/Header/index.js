@@ -12,15 +12,23 @@ import Button from '~/components/Button';
 
 //logo
 import images from '~/assets/img';
-import { faArrowRightToBracket, faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+   faArrowRightToBracket,
+   faEllipsisVertical,
+   faMagnifyingGlass,
+   faSpinner,
+   faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 const cx = classNames.bind(styles);
 const Tickets = [1, 2, 3, 4];
+let hoverLogin = false;
 
 function Header() {
    //logic
    const [searchResult, setSearchResult] = useState([]);
+
    useEffect(() => {
       setTimeout(() => setSearchResult([]), 3000);
    });
@@ -78,6 +86,15 @@ function Header() {
                   </button>
                </div>
             </Tippy>
+
+            <div className={cx('setting')}>
+               <div className={cx('icon')}>
+                  <FontAwesomeIcon icon={faArrowRightToBracket} />
+               </div>
+               <div className={cx('icon')}>
+                  <FontAwesomeIcon icon={faEllipsisVertical} />
+               </div>
+            </div>
          </div>
       </header>
    );
