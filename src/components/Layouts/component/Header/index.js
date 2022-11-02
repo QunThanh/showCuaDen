@@ -8,12 +8,15 @@ import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import TicketItem from '~/components/TicketItem';
+import Button from '~/components/Button';
 
 //logo
 import images from '~/assets/img';
-import { faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightToBracket, faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 const cx = classNames.bind(styles);
+const Tickets = [1, 2, 3, 4];
 
 function Header() {
    //logic
@@ -38,12 +41,12 @@ function Header() {
             </div>
 
             <div className={cx('nav')}>
-               <ul className={cx('nav-list')}>
-                  <li>Introduce</li>
-                  <li>Artist</li>
-                  <li className={cx('ticket')}>Tickets</li>
-                  <li>Map</li>
-               </ul>
+               <Button text>Introduce</Button>
+               <Button text>Artist</Button>
+               <Button disable={Tickets.length > 0 ? false : true} gold>
+                  {Tickets.length > 0 ? 'Tickets' : 'Sold out'}
+               </Button>
+               <Button text>Map</Button>
             </div>
 
             <Tippy

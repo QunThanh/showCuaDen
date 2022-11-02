@@ -18,31 +18,6 @@
       align-items: center;
    }
 
-   .nav {
-      .nav-list {
-         display: flex;
-         list-style: none;
-         .ticket {
-            background-color: var(--background-gold);
-            border-radius: 5px;
-            color: var(--white);
-            &:hover {
-               color: var(--black);
-            }
-         }
-      }
-      li {
-         padding: 10px 15px;
-         font-size: 1.75rem;
-         cursor: pointer;
-         font-weight: 600;
-         &:hover {
-            color: var(--background-gold);
-            transition: all 0.3s ease-in-out;
-         }
-      }
-   }
-
    .search-result,
    .search {
       width: 280px;
