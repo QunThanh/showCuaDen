@@ -26,6 +26,9 @@ import {
    faSpinner,
    faXmark,
    faBell,
+   faUser,
+   faTicket,
+   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
 //variable
@@ -59,6 +62,8 @@ function Header() {
    //logic
    const [searchResult, setSearchResult] = useState([]);
 
+   const currentUser = true;
+
    useEffect(() => {
       setTimeout(() => setSearchResult([]), 3000);
    });
@@ -76,7 +81,12 @@ function Header() {
       }
    };
 
-   const currentUser = true;
+   const MENU_USER = [
+      { icon: <FontAwesomeIcon icon={faUser} />, title: 'Profile', to: '/@User' },
+      { icon: <FontAwesomeIcon icon={faTicket} />, title: 'Tickets', to: '/mytickets' },
+      ...MENU_ITEMS,
+      { icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />, title: 'Log Out', to: '/logout', hasLine: true },
+   ];
 
    //reder UI
    return (
@@ -135,12 +145,12 @@ function Header() {
             <div className={cx('setting')}>
                {currentUser ? (
                   <>
-                     <Tippy content={'Contact'} placement="bottom">
+                     <Tippy content="Contact" placement="bottom">
                         <div className={cx('icon')}>
                            <FontAwesomeIcon icon={faPaperPlane} />
                         </div>
                      </Tippy>
-                     <Tippy content={'Note'} placement="bottom">
+                     <Tippy content="Note" placement="bottom">
                         <div className={cx('icon')}>
                            <FontAwesomeIcon icon={faBell} />
                         </div>
@@ -148,18 +158,16 @@ function Header() {
                   </>
                ) : (
                   <>
-                     <Tippy interactive placement="left" content={'Login'}>
+                     <Tippy interactive placement="left" content="Login">
                         <div className={cx('icon')}>
                            <FontAwesomeIcon icon={faArrowRightToBracket} />
                         </div>
                      </Tippy>
                   </>
                )}
-               <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+               <Menu items={currentUser ? MENU_USER : MENU_ITEMS} onChange={handleMenuChange}>
                   {currentUser ? (
-                     <>
-                        <img className={cx('user-avatar')} href={images.avatar} />
-                     </>
+                     <img className={cx('user-avatar')} alt={'avatar-user'} src={images.avatar} />
                   ) : (
                      <div className={cx('icon-menu')}>
                         <FontAwesomeIcon icon={faEllipsisVertical} />

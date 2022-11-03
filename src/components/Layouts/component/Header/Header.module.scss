@@ -118,10 +118,12 @@
    }
    .setting {
       .user-avatar {
-         width: 40px;
-         height: 40px;
+         width: 34px;
+         height: 34px;
+         border-radius: 50%;
+         border: 1px solid var(--gold-blur-text);
          object-fit: cover;
-         border-radius: 20px;
+         cursor: pointer;
       }
    }
 }

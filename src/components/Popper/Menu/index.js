@@ -10,7 +10,9 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange }) {
+const defaultFn = () => {};
+
+function Menu({ children, items = [], onChange = defaultFn }) {
    //logic
    const [access, setAccess] = useState([{ data: items }]);
 
