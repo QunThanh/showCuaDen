@@ -28,7 +28,25 @@ import {
 const cx = classNames.bind(styles);
 const Tickets = [1, 2, 3, 4];
 const MENU_ITEMS = [
-   { icon: <FontAwesomeIcon icon={faEarthAsia} />, title: 'Englist' },
+   {
+      icon: <FontAwesomeIcon icon={faEarthAsia} />,
+      title: 'English',
+      children: {
+         title: 'Language',
+         data: [
+            {
+               type: '_language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: '_language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+         ],
+      },
+   },
    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'FQAs', to: '/feedback' },
    { icon: <FontAwesomeIcon icon={faCircleInfo} />, title: 'Infomation' },
 ];
@@ -40,6 +58,19 @@ function Header() {
    useEffect(() => {
       setTimeout(() => setSearchResult([]), 3000);
    });
+
+   //handle logic
+   const handleMenuChange = (menuItem) => {
+      // console.log(menuItem.type);
+      switch (menuItem.type) {
+         case '_language':
+            //handel change language
+            break;
+
+         default:
+            break;
+      }
+   };
 
    //reder UI
    return (
@@ -101,7 +132,7 @@ function Header() {
                      <FontAwesomeIcon icon={faArrowRightToBracket} />
                   </div>
                </Tippy>
-               <Menu items={MENU_ITEMS}>
+               <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                   <div className={cx('icon-menu')}>
                      <FontAwesomeIcon icon={faEllipsisVertical} />
                   </div>
