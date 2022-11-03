@@ -101,13 +101,19 @@
       display: flex;
       font-size: 2rem;
       gap: 15px;
-      .icon:hover {
+      align-items: center;
+      .icon:hover,
+      .icon-menu:hover {
          color: var(--gold-dark-text);
          transition: color 0.4s ease;
          cursor: pointer;
       }
-      .icon:active {
+      .icon:active,
+      .icon-menu:active {
          color: var(--gold-text);
+      }
+      .icon-menu {
+         padding: 6px;
       }
    }
 }

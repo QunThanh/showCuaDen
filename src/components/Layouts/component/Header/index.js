@@ -9,21 +9,29 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import TicketItem from '~/components/TicketItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
-//logo
+//logo vs img
 import images from '~/assets/img';
 import {
    faArrowRightToBracket,
+   faCircleInfo,
+   faCircleQuestion,
+   faEarthAsia,
    faEllipsisVertical,
    faMagnifyingGlass,
    faSpinner,
    faXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
+//variable
 const cx = classNames.bind(styles);
 const Tickets = [1, 2, 3, 4];
-let hoverLogin = false;
+const MENU_ITEMS = [
+   { icon: <FontAwesomeIcon icon={faEarthAsia} />, title: 'Englist' },
+   { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'FQAs', to: '/feedback' },
+   { icon: <FontAwesomeIcon icon={faCircleInfo} />, title: 'Infomation' },
+];
 
 function Header() {
    //logic
@@ -58,6 +66,8 @@ function Header() {
             </div>
 
             <Tippy
+               visible={searchResult.length > 0}
+               interactive="true"
                render={(attrs) => (
                   <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                      <PopperWrapper>
@@ -72,8 +82,6 @@ function Header() {
                      </PopperWrapper>
                   </div>
                )}
-               visible={searchResult.length > 0}
-               interactive="true"
             >
                <div className={cx('search')}>
                   <input placeholder="Search something ..." spellCheck={false} />
@@ -88,12 +96,16 @@ function Header() {
             </Tippy>
 
             <div className={cx('setting')}>
-               <div className={cx('icon')}>
-                  <FontAwesomeIcon icon={faArrowRightToBracket} />
-               </div>
-               <div className={cx('icon')}>
-                  <FontAwesomeIcon icon={faEllipsisVertical} />
-               </div>
+               <Tippy interactive placement="left" render={(attrs) => <h6>Login</h6>}>
+                  <div className={cx('icon')}>
+                     <FontAwesomeIcon icon={faArrowRightToBracket} />
+                  </div>
+               </Tippy>
+               <Menu items={MENU_ITEMS}>
+                  <div className={cx('icon-menu')}>
+                     <FontAwesomeIcon icon={faEllipsisVertical} />
+                  </div>
+               </Menu>
             </div>
          </div>
       </header>
