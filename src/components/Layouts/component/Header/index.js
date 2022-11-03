@@ -12,6 +12,7 @@ import AccountItem from '~/components/AccountItem';
 import TicketItem from '~/components/TicketItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 
 //logo vs img
 import images from '~/assets/img';
@@ -167,7 +168,7 @@ function Header() {
                )}
                <Menu items={currentUser ? MENU_USER : MENU_ITEMS} onChange={handleMenuChange}>
                   {currentUser ? (
-                     <img className={cx('user-avatar')} alt={'avatar-user'} src={images.avatar} />
+                     <Image className={cx('user-avatar')} alt={'avatar-user'} src={images.avatar}></Image>
                   ) : (
                      <div className={cx('icon-menu')}>
                         <FontAwesomeIcon icon={faEllipsisVertical} />
