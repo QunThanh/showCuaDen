@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import { useEffect, useState } from 'react';
 
 //conponent
@@ -20,8 +22,10 @@ import {
    faEarthAsia,
    faEllipsisVertical,
    faMagnifyingGlass,
+   faPaperPlane,
    faSpinner,
    faXmark,
+   faBell,
 } from '@fortawesome/free-solid-svg-icons';
 
 //variable
@@ -72,6 +76,8 @@ function Header() {
       }
    };
 
+   const currentUser = true;
+
    //reder UI
    return (
       <header className={cx('wrapper')}>
@@ -96,7 +102,7 @@ function Header() {
                <Button text>Map</Button>
             </div>
 
-            <Tippy
+            <HeadlessTippy
                visible={searchResult.length > 0}
                interactive="true"
                render={(attrs) => (
@@ -124,18 +130,41 @@ function Header() {
                      <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </button>
                </div>
-            </Tippy>
+            </HeadlessTippy>
 
             <div className={cx('setting')}>
-               <Tippy interactive placement="left" render={(attrs) => <h6>Login</h6>}>
-                  <div className={cx('icon')}>
-                     <FontAwesomeIcon icon={faArrowRightToBracket} />
-                  </div>
-               </Tippy>
+               {currentUser ? (
+                  <>
+                     <Tippy content={'Contact'} placement="bottom">
+                        <div className={cx('icon')}>
+                           <FontAwesomeIcon icon={faPaperPlane} />
+                        </div>
+                     </Tippy>
+                     <Tippy content={'Note'} placement="bottom">
+                        <div className={cx('icon')}>
+                           <FontAwesomeIcon icon={faBell} />
+                        </div>
+                     </Tippy>
+                  </>
+               ) : (
+                  <>
+                     <Tippy interactive placement="left" content={'Login'}>
+                        <div className={cx('icon')}>
+                           <FontAwesomeIcon icon={faArrowRightToBracket} />
+                        </div>
+                     </Tippy>
+                  </>
+               )}
                <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                  <div className={cx('icon-menu')}>
-                     <FontAwesomeIcon icon={faEllipsisVertical} />
-                  </div>
+                  {currentUser ? (
+                     <>
+                        <img className={cx('user-avatar')} href={images.avatar} />
+                     </>
+                  ) : (
+                     <div className={cx('icon-menu')}>
+                        <FontAwesomeIcon icon={faEllipsisVertical} />
+                     </div>
+                  )}
                </Menu>
             </div>
          </div>
