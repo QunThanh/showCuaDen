@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 
-import Header from '~/components/Layouts/component/Header';
+import { Header } from '~/components/Layouts/component/';
 import Nav from './Nav';
 
 const cx = classNames.bind(styles);

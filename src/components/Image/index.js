@@ -1,7 +1,7 @@
 import { forwardRef, useState } from 'react';
 import images from '~/assets/img';
 
-function Image({ src, ...props }, ref) {
+function Image({ src = images.avatar, ...props }, ref) {
    const [fallBach, setFallBack] = useState('');
 
    const handleError = () => {
