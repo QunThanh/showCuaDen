@@ -9,7 +9,8 @@ import Login from '~/pages/Login';
 // don't need User
 const publicRoutes = [
    { path: '/', conponent: Home },
-   { path: '/payment', conponent: Payment, layout: HeaderOnlyLayout },
+   //should add profile page
+   { path: '/@:payment', conponent: Payment, layout: HeaderOnlyLayout },
    { path: '/login', conponent: Login, layout: null },
 ];
 

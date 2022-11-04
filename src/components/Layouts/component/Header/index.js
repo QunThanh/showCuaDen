@@ -24,6 +24,7 @@ import {
    faTicket,
    faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 //variable
 const cx = classNames.bind(styles);
@@ -81,7 +82,7 @@ function Header() {
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
-            <div className={cx('logo')}>
+            <Link to={'/'} className={cx('logo')}>
                <img
                   src={images.logoDV}
                   alt="logo DV"
@@ -90,7 +91,7 @@ function Header() {
                      width: 80,
                   }}
                />
-            </div>
+            </Link>
 
             <div className={cx('nav')}>
                <Button text>Introduce</Button>

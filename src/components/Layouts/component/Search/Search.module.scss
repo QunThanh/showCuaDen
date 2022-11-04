@@ -41,9 +41,24 @@
       position: absolute;
       right: calc(var(--search-button-width) + 10px);
       top: 50%;
-      transform: translateY(-50%);
       background-color: transparent;
       color: rgba(22, 24, 35, 0.34);
+      transform: rotate(0);
+   }
+   .clear-btn {
+      transform: translateY(-50%);
+   }
+   .loading {
+      animation: spinner 2s linear infinite;
+   }
+
+   @keyframes spinner {
+      from {
+         transform: translateY(-50%) rotate(0);
+      }
+      to {
+         transform: translateY(-50%) rotate(360deg);
+      }
    }
 
    .search-btn {
