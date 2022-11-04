@@ -13,6 +13,7 @@ import TicketItem from '~/components/TicketItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
+import Notify from '~/components/Notify';
 
 //logo vs img
 import images from '~/assets/img';
@@ -35,6 +36,7 @@ import {
 //variable
 const cx = classNames.bind(styles);
 const Tickets = [1, 2, 3, 4];
+const numNotify = 8;
 const MENU_ITEMS = [
    {
       icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -153,7 +155,7 @@ function Header() {
                      </Tippy>
                      <Tippy content="Note" placement="bottom">
                         <div className={cx('icon')}>
-                           <FontAwesomeIcon icon={faBell} />
+                           <Notify number={numNotify} />
                         </div>
                      </Tippy>
                   </>
