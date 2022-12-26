@@ -3,6 +3,12 @@ import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useState, useEffect, useRef } from 'react';
 
+//api service
+import * as searchService from '~/apiServices/searchService';
+
+//hooks custom
+import useDebounce from '~/hooks/useDebounce';
+
 //component
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import ArtistAccount from '~/components/ArtistAccount';
@@ -23,24 +29,25 @@ function Search() {
 
    const inputRef = useRef();
 
+   const debounced = useDebounce(searchValue, 500);
+
    useEffect(() => {
-      if (!searchValue) {
+      if (!debounced) {
          setSearchResult([]);
          return;
       }
 
-      setLoading(true);
+      const fetchApi = async () => {
+         setLoading(true);
 
-      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-         .then((res) => res.json())
-         .then((res) => {
-            setSearchResult(res.data);
-            setLoading(false);
-         })
-         .catch(() => {
-            setLoading(false);
-         });
-   }, [searchValue]);
+         const result = await searchService.search(debounced);
+         setSearchResult(result);
+
+         setLoading(false);
+      };
+
+      fetchApi();
+   }, [debounced]);
 
    //handle
    const handleClear = () => {
