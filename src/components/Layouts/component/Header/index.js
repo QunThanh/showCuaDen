@@ -4,6 +4,9 @@ import styles from './Header.module.scss';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
+//routes config
+import routesConfig from '~/configs/routes';
+
 //conponent
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
@@ -12,6 +15,7 @@ import Notify from '~/components/Notify';
 import { Search } from '~/components/Layouts/component';
 
 //logo vs img
+import { Link } from 'react-router-dom';
 import images from '~/assets/img';
 import {
    faArrowRightToBracket,
@@ -24,7 +28,6 @@ import {
    faTicket,
    faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 
 //variable
 const cx = classNames.bind(styles);
@@ -82,7 +85,7 @@ function Header() {
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
-            <Link to={'/'} className={cx('logo')}>
+            <Link to={routesConfig.home} className={cx('logo')}>
                <img
                   src={images.logoDV}
                   alt="logo DV"
