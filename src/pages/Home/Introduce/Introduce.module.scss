@@ -1,0 +1,120 @@
+.wrapper {
+   position: relative;
+   top: 0;
+   .content-banner {
+      position: relative;
+      padding-top: 45px;
+      height: 700px;
+      overflow: hidden;
+   }
+}
+
+.content-banner {
+   .img-content {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 555px;
+   }
+   .content-text {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--background-primary);
+   }
+}
+
+.img-content {
+   .img-kimmie,
+   .img-lynk,
+   .img-ngot,
+   .img-linh,
+   .img-vu {
+      position: absolute;
+      width: 120px;
+      height: 180px;
+   }
+
+   .img-linh {
+      width: 68px;
+      height: 143px;
+      left: 61%;
+      z-index: 6;
+   }
+
+   .img-ngot {
+      width: 122px;
+      height: 222px;
+      left: 11%;
+      z-index: 7;
+   }
+
+   .img-kimmie {
+      top: 16%;
+      left: 67%;
+      transform: translateX(-30%);
+      z-index: 7;
+   }
+
+   .img-lynk {
+      top: 30%;
+      left: 18%;
+      z-index: 8;
+   }
+
+   .img-vu {
+      top: 29%;
+      left: 58%;
+      z-index: 8;
+   }
+
+   .img-denvau {
+      width: 300px;
+      height: 485px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9;
+   }
+   .img-text {
+      width: 318px;
+      height: 180px;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+   }
+}
+
+.content-text {
+   .time-text {
+      font-size: 3rem;
+      line-height: 50px;
+      text-align: center;
+      text-shadow: 0 0 1px #0a0b0d;
+   }
+   .location-text {
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 18px;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 0 1px var(--red-text);
+      color: var(--red-text);
+      .description-text {
+         font-size: 1.5rem;
+         line-height: 20px;
+         font-weight: 200;
+         padding-top: 0.3rem;
+         text-transform: uppercase;
+         text-shadow: 0 0 1px var(--background-dark-blue);
+         color: var(--background-dark-blue);
+      }
+   }
+}

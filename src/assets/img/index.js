@@ -4,10 +4,13 @@ const images = {
    backgroundBanner: require('~/assets/img/png/background_banner.png'),
    bannerShowCuaDen: require('~/assets/img/png/panner_showcuaden.png'),
    mapStadium: require('~/assets/img/svg/map_stadium.svg').default,
+   backgroundDenVau: require('~/assets/img/png/background_denvau.png'),
+   backgroundGuest: require('~/assets/img/png/background_guest.png'),
 
    text: {
       textShowCuaDen: require('~/assets/img/png/textDENVAU.png'),
       textArtist: require('~/assets/img/svg/text_artists.svg').default,
+      textGuest: require('~/assets/img/svg/text_guest.svg').default,
    },
 
    gift: {

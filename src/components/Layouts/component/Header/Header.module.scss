@@ -6,7 +6,7 @@
 .inner {
    height: 100%;
    width: var(--default-layout-width, 1080px);
-   background-color: var(--background-gray);
+   background-color: transparent;
    display: flex;
    justify-content: space-around;
    align-items: center;
